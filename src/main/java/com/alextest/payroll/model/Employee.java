@@ -1,12 +1,15 @@
 package com.alextest.payroll.model;
 
-import java.util.Objects;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter @Setter
+@EqualsAndHashCode
 public class Employee {
 
 	  private @Id @GeneratedValue Long id;
@@ -31,55 +34,6 @@ public class Employee {
 	    String[] parts = name.split(" ");
 	    this.firstName = parts[0];
 	    this.lastName = parts[1];
-	  }
-
-	  public Long getId() {
-	    return this.id;
-	  }
-
-	  public String getFirstName() {
-	    return this.firstName;
-	  }
-
-	  public String getLastName() {
-	    return this.lastName;
-	  }
-
-	  public String getRole() {
-	    return this.role;
-	  }
-
-	  public void setId(Long id) {
-	    this.id = id;
-	  }
-
-	  public void setFirstName(String firstName) {
-	    this.firstName = firstName;
-	  }
-
-	  public void setLastName(String lastName) {
-	    this.lastName = lastName;
-	  }
-
-	  public void setRole(String role) {
-	    this.role = role;
-	  }
-
-	  @Override
-	  public boolean equals(Object o) {
-
-	    if (this == o)
-	      return true;
-	    if (!(o instanceof Employee))
-	      return false;
-	    Employee employee = (Employee) o;
-	    return Objects.equals(this.id, employee.id) && Objects.equals(this.firstName, employee.firstName)
-	        && Objects.equals(this.lastName, employee.lastName) && Objects.equals(this.role, employee.role);
-	  }
-
-	  @Override
-	  public int hashCode() {
-	    return Objects.hash(this.id, this.firstName, this.lastName, this.role);
 	  }
 
 	  @Override
